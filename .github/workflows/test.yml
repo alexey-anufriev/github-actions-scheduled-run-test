@@ -1,0 +1,20 @@
+name: Scheduler Test
+
+on:
+  schedule:
+    - cron: '*/10 * * * *'
+
+jobs:
+  test:
+    name: test
+    runs-on: ubuntu-latest
+    permissions:
+      actions: read
+      contents: read
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+
+      - name: Echo
+        shell: bash
+        run: echo 42
